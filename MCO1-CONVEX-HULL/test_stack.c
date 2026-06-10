@@ -25,11 +25,24 @@ int main()
 {
    // test the stack operations by calling the stack function.
 
-   int x = 123; // document the purpose of the local variable(s)
+   /*int x = 123; // document the purpose of the local variable(s)
 
    Sample(x);  // replace this line of code with your own set of codes
 
-   return 0;
+   return 0;*/
+
+   // !!! ASK THE USER FOR FILE NAME AND USE CREATE STACK TO REINITIALIZE !!! //
+
+   stack S;
+   Create(&S);
+
+   FILE *fp;
+   fp = fopen(/*"sample_output.txt"*//*"input-circle.txt"*/"sample-input.txt", "r");
+   importTxt(fp, &S);
+
+   printf("Top: %lf %lf", Top(S).X, Top(S).Y);
+
+   convexHull(S);
 }
 
 

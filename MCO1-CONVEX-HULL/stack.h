@@ -30,9 +30,52 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
+
+#define MAX 32768
+#define PI 3.1415926535
+
+struct coordinates{
+
+    double X;
+    double Y;
+};
+
+typedef struct coordinates Point;
+
+struct stackTemp{
+
+    // STRICT REQUIREMENT #3
+
+    Point coords[MAX];
+    int top; // index of the array (has to be top always)
+};
+
+typedef struct stackTemp stack;
 
 // you may include other header files
 
 // example FUNCTION PROTOTYPE -- remove this and the next line in your own codes
 void Sample(int x);
+
+// helper function
+
+void importTxt(FILE *fp, stack *S);
+int orientation(Point next, Point top, Point secondTop); // return -1, 1 or 0 if its ccw, cw or collinear
+void convexHull(stack S);
+void lowestPoint(Point coords[], int count);
+void lowestPoint(Point coords[], int count);
+
+// function prototypes
+
+void Create(stack *S);
+void Push(stack *S, Point x);
+void Pop(stack *S);
+Point Top(stack S);
+Point nextToTop(stack S);
+bool stackEmpty(stack S);
+bool stackFull(stack S);
+
+
   
