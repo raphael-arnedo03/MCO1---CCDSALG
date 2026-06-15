@@ -42,20 +42,20 @@ int main()
    	
    	Point Coords[nSize];
    	importTxt(Coords, nSize, fp);
-   	/*printf("\nImport Test");
-   	printArray(Coords, nSize);*/
+   	printf("\nImport Test");
+   	printArray(Coords, nSize);
    	
    	findAnchorPoint(Coords, nSize);
-   	/*printf("\nAnchor Point Test");
-   	printArray(Coords, nSize);*/
+   	printf("\nAnchor Point Test");
+   	printArray(Coords, nSize);
    	
    	insertionSort(Coords, nSize);
-   	/*printf("\nInsertion Sort Test");
-   	printArray(Coords, nSize);*/
+   	printf("\nInsertion Sort Test");
+   	printArray(Coords, nSize);
    	
    	quickSort(Coords, 1, nSize - 1);
-   	/*printf("\nQuick Sort Test");
-	printArray(Coords, nSize);*/
+   	printf("\nQuick Sort Test");
+	printArray(Coords, nSize);
    	
    	fclose(fp);
 	return 0;
