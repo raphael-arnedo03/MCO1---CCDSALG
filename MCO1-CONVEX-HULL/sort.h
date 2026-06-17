@@ -39,7 +39,6 @@ typedef struct{
 	int index;
 } Point;
 
-void importTxt(Point Coords[], int nSize, FILE *fp);
 void findAnchorPoint(Point Coords[], int nSize);
 int compareDistance(Point Coords[], Point P1, Point P2);
 int comparePolarAngles(Point Coords[], Point P1, Point P2);
