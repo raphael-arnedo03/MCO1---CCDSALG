@@ -8,7 +8,7 @@
     LASTNAME2, FIRSTNAME2  SECTION
     LASTNAME3, FIRSTNAME3  SECTION 
 
-    PURPOSE OF THIS FILE: to show an example of a C source file that follows the coding guidelines/instructions.
+    PURPOSE OF THIS FILE: to show an eXample of a C source file that follows the coding guidelines/instructions.
 
     >> GENERAL INSTRUCTIONS: NON-COMPLIANCE WILL RESULT INTO AT LEAST A 10 POINT DEDUCTION!
     1. Adhere with good programming style and practice (learned from CCPROG1 and CCPROG2).
@@ -42,16 +42,6 @@
     Remove the Sample() function in your own C source code.
 */
 
-void importTxt(Point Coords[], int nSize, FILE *fp)
-{
-	int i;
-	
-	for (i = 0; i < nSize; i++) {
- 		fscanf(fp, "%lf %lf", &Coords[i].x, &Coords[i].y);
- 		Coords[i].index = i;
- 	}
-}
-
 void findAnchorPoint(Point Coords[], int nSize)
 {
 	int i, j;
@@ -65,12 +55,12 @@ void findAnchorPoint(Point Coords[], int nSize)
 	
 	for (i = 0; i < nSize; i++) {
 		for(j = i + 1; j < nSize; j++) {
-			if(finder[i].y > finder[j].y){
+			if(finder[i].Y > finder[j].Y){
 				temp = finder[j];
 				finder[j] = finder[i];
 				finder[i] = temp;
-			} else if (finder[i].y == finder[j].y) {
-				if(finder[i].x > finder[j].x){
+			} else if (finder[i].Y == finder[j].Y) {
+				if(finder[i].X > finder[j].X){
 					temp = finder[j];
 					finder[j] = finder[i];
 					finder[i] = temp;
@@ -88,8 +78,8 @@ int compareDistance(Point Coords[], Point P1, Point P2){
 	double fDistance1;
 	double fDistance2;
 	
-	fDistance1 = (P1.x - Coords[0].x) * (P1.x - Coords[0].x) + (P1.y - Coords[0].y) * (P1.y - Coords[0].y);
-	fDistance2 = (P2.x - Coords[0].x) * (P2.x - Coords[0].x) + (P2.y - Coords[0].y) * (P2.y - Coords[0].y);
+	fDistance1 = (P1.X - Coords[0].X) * (P1.X - Coords[0].X) + (P1.Y - Coords[0].Y) * (P1.Y - Coords[0].Y);
+	fDistance2 = (P2.X - Coords[0].X) * (P2.X - Coords[0].X) + (P2.Y - Coords[0].Y) * (P2.Y - Coords[0].Y);
 	
 	if(fDistance1 > fDistance2)
 		return 1;
@@ -104,8 +94,8 @@ int comparePolarAngles(Point Coords[], Point P1, Point P2){
 	double fAngle2;
 	
 	
-	fAngle1 = atan2((P1.y - Coords[0].y),(P1.x - Coords[0].x)) * (180.0/PI);
-	fAngle2 = atan2((P2.y - Coords[0].y),(P2.x - Coords[0].x)) * (180.0/PI);
+	fAngle1 = atan2((P1.Y - Coords[0].Y),(P1.X - Coords[0].X)) * (180.0/PI);
+	fAngle2 = atan2((P2.Y - Coords[0].Y),(P2.X - Coords[0].X)) * (180.0/PI);
 	
 	if(fAngle1 > fAngle2)
 		return 1;

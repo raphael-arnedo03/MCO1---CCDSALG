@@ -28,16 +28,27 @@ void printArray(Point Coords[], int nSize){
 	printf ("\nSize: %d\n", nSize);
 	printf ("# X\t\tY\n");
 	for (i = 0; i < nSize; i++) {
- 		printf("%d %.4lf\t%.4lf\n", Coords[i].index, Coords[i].x, Coords[i].y);
+ 		printf("%d %.4lf\t%.4lf\n", Coords[i].index, Coords[i].X, Coords[i].Y);
+ 	}
+}
+
+//Importing Testing txt files
+void importTxt(Point Coords[], int nSize, FILE *fp)
+{
+	int i;
+	
+	for (i = 0; i < nSize; i++) {
+ 		fscanf(fp, "%lf %lf", &Coords[i].X, &Coords[i].Y);
+ 		Coords[i].index = i;
  	}
 }
 
 int main()
-{
+{	
 	int nSize;
 	FILE *fp;
 	
-   	fp = fopen("input-circle.txt", "r");
+   	fp = fopen("sample-input.txt", "r");
    	fscanf(fp, "%d", &nSize);
    	
    	Point Coords[nSize];

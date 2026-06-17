@@ -34,8 +34,8 @@
 #define PI 3.141592
 
 typedef struct{
-	double x;
-	double y;
+	double X;
+	double Y;
 	int index;
 } Point;
 
