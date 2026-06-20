@@ -70,8 +70,8 @@ void findAnchorPoint(Point Coords[], int nSize)
 	}
 	anchorIndex = finder[0].index; 
 	
+	Coords[anchorIndex] = Coords[0];
 	Coords[0] = finder[0];
-	Coords[anchorIndex] = finder[anchorIndex - 1];
 }
 
 int compareDistance(Point Coords[], Point P1, Point P2){
