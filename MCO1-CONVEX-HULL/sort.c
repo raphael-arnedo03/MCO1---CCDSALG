@@ -44,6 +44,32 @@
 
 void findAnchorPoint(Point Coords[], int nSize)
 {
+
+    int i, j, k = 0;
+    Point tempCoords;
+    Point compareCoords;
+    Point firstElem;
+
+    // find the first element
+
+    for (i = 1; i < nSize; i++)
+    {
+
+        tempCoords = Coords[i];
+        j = i - 1;
+
+        while (j >= 0 && (Coords[j].Y > tempCoords.Y
+        || (Coords[j].Y == tempCoords.Y && Coords[j].X > tempCoords.X)))
+        {
+            Coords[j+1] = Coords[j];
+            j--;
+        }
+        Coords[j + 1] = tempCoords;
+    }
+    printf("count: %d\n\n", i);
+
+    Point lowest = Coords[0];
+	/*
 	int i, j;
 	int anchorIndex;
 	Point finder[nSize];
@@ -68,10 +94,10 @@ void findAnchorPoint(Point Coords[], int nSize)
 			}
 		}
 	}
-	anchorIndex = finder[0].index; 
+	//anchorIndex = finder[0].index; 
 	
-	Coords[anchorIndex] = Coords[0];
-	Coords[0] = finder[0];
+	//Coords[anchorIndex] = Coords[0];
+	Coords[0] = finder[0];*/
 }
 
 int compareDistance(Point Coords[], Point P1, Point P2){

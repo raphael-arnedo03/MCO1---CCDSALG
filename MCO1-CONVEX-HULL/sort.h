@@ -27,17 +27,34 @@
 
     Function definitions should be encoded in your C source file only!
 */
-
+#ifndef SORT_H
+#define SORT_H
 #include <stdio.h>
 #include <math.h>
 
-#define PI 3.141592
+#define MAX 32768
+#define PI 3.1415926535
 
-typedef struct{
-	double X;
-	double Y;
-	int index;
-} Point;
+struct coordinates{
+
+    double X;
+    double Y;
+    int index;
+};
+
+typedef struct coordinates Point;
+
+struct stackTemp{
+
+    // STRICT REQUIREMENT #3
+
+    Point coords[MAX];
+    int top; // index of the array (has to be top always)
+};
+
+typedef struct stackTemp stack;
+
+//#define PI 3.141592
 
 void findAnchorPoint(Point Coords[], int nSize);
 int compareDistance(Point Coords[], Point P1, Point P2);
@@ -45,5 +62,7 @@ int comparePolarAngles(Point Coords[], Point P1, Point P2);
 void insertionSort(Point Coords[], int nSize);
 int partition(Point Coords[], int low, int high);
 void quickSort(Point Coords[], int low, int high);
+
+#endif
 
 

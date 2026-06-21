@@ -37,12 +37,50 @@ int main()
    Create(&S);
 
    FILE *fp;
-   fp = fopen(/*"sample_output.txt"*//*"input-circle.txt"*/"sample-input.txt", "r");
-   importTxt(fp, &S);
+   char fileInput[MAX];
+   printf("File name, no spaces: ");
+   scanf("%s", fileInput);
+   fp = fopen(fileInput, "r");
 
-   printf("Top: %lf %lf", Top(S).X, Top(S).Y);
+   printf("\nSTACK EMPTY: %d", stackEmpty(S));
 
-   convexHull(S);
+   printf("\nBEFORE STACK OPS: ");
+
+   int i = 0;
+   int size;
+
+   fscanf(fp, "%d", &size);
+
+   while (i < size)
+   {
+        fscanf(fp, "%lf %lf", &S.coords[i].X, &S.coords[i].Y);
+        printf("\n%d %lf %lf", i , S.coords[i].X, S.coords[i].Y);
+        i++;
+   }
+
+   S.top = size - 1;
+
+   printf("\nTOP: %lf %lf", Top(S).X, Top(S).Y);
+   printf("\nSECOND TOP: %lf %lf", nextToTop(S).X, nextToTop(S).Y);
+   printf("\nPUSH POINT (5,5)");
+
+   Point FiveFive;
+   FiveFive.X = 5;
+   FiveFive.Y = 5;
+   Push(&S, FiveFive);
+
+   printf("\nTOP: %lf %lf", Top(S).X, Top(S).Y);
+   printf("\nSECOND TOP: %lf %lf", nextToTop(S).X, nextToTop(S).Y);
+
+   printf("\nPOP TWICE:");
+   Pop(&S);
+   Pop(&S);
+
+   printf("\nTOP: %lf %lf", Top(S).X, Top(S).Y);
+   printf("\nSECOND TOP: %lf %lf", nextToTop(S).X, nextToTop(S).Y);
+
+   printf("\nSTACK FULL: %d", stackFull(S));
+
 }
 
 

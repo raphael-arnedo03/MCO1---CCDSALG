@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 #include <time.h>    // this is needed for calling the clock()
+#include "convex_slow.c"
+//#include "convex_fast.c"
 
 #define STEP  (1024)
 #define LIMIT (32768)
@@ -26,17 +28,23 @@ void algo(long int n)
 
   the_start = clock();  // record the start time 
 
+  stack S;
+  Create(&S);
+  importTxtAuto(&S, 9);
+  cv(&n, &S);
+  /*
   ctr = 0; 
   for (long int i = 1; i <= n; ++i) {    // outer loop: this is O(n)
       ctr = 0;                           // this is O(n)
       for (long int j = 1; j <= n; j++)  // inner loop: this is O(n^2) as affected by the outer loop
           ctr++;                         // this is O(n^2) 
-  }
+  }*/
   
   the_end = clock();  // record the end time
 
   // prints the input size n and the corresponding elapsed execution time in ms (millisecond)
-  printf("%6ld %15lf\n", n, (double)(the_end - the_start));  
+  //printf("size time: %6ld %15lf\n", n, (double)(the_end - the_start));
+  printf("time in ms: %15lf\n", (double)(the_end - the_start));  
 }
 
 int main() {

@@ -17,6 +17,8 @@ int main(){
 	int n = 6;
 	int nTest = 0;
 	srand(time(NULL)); 
+	//int randomN = (rand() % (14 - 6 + 1)) + 6;
+	int nLimit;
 	FILE *fp;
 	String25 sFileName = "Test-0.txt";
 	
@@ -24,15 +26,21 @@ int main(){
 		sFileName[5] = '0' + nTest;
 		fp = fopen(sFileName, "w");
 		
-		int nLimit = pow(2,n);
+		nLimit = pow(2,n);
 		fprintf(fp,"%d\n", nLimit);
 		for(i = 0; i < nLimit; i++)
 			fprintf(fp,"%11.6lf%12.6lf\n", randfrom(-5.0,5.0), randfrom(-5.0,5.0));
-		
-		n++;
+		n++;	
 		nTest++;
 		fclose(fp);
 	} while (nTest < 10);
-	
+
+	/*
+	nLimit = 15;
+	fp = fopen(sFileName, "w");
+	for(i = 0; i < nLimit; i++)
+			fprintf(fp,"%11.6lf%12.6lf\n", randfrom(-5.0,5.0), randfrom(-5.0,5.0));
+	fclose(fp);*/
+
 	return 0;
 }
