@@ -42,7 +42,6 @@ int main()
     for (i = 0; i <= S.top; i++)
     {
         printf("\n%d %lf %lf", i, S.coords[i].X, S.coords[i].Y);
-        //T.coords[i] = S.coords[i];
     }
 
     exportTxt(S, S.top);
