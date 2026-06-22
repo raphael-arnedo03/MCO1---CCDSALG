@@ -1,14 +1,12 @@
 /**
-
     >> Encode your group number (2 digits) and last names, first names and sections of group members.  Encode the purpose of this file.
 
-    Group #: 00  (2 digits)
+    Group #: 10  (2 digits)
 
-    LASTNAME1, FIRSTNAME1  SECTION
-    LASTNAME2, FIRSTNAME2  SECTION
-    LASTNAME3, FIRSTNAME3  SECTION 
+    ARNEDO, RAFAEL S09
+    ACIERTO, JOAQUIN S04
 
-    PURPOSE OF THIS FILE: to show an eXample of a C source file that follows the coding guidelines/instructions.
+    PURPOSE OF THIS FILE: Holds the programs for the sorting algorithms
 
     >> GENERAL INSTRUCTIONS: NON-COMPLIANCE WILL RESULT INTO AT LEAST A 10 POINT DEDUCTION!
     1. Adhere with good programming style and practice (learned from CCPROG1 and CCPROG2).
@@ -42,15 +40,23 @@
     Remove the Sample() function in your own C source code.
 */
 
+// Sort Operations
+
+/*
+    a. Name of Programmer(s):  Joaquin Acierto
+    b. Name of Tester(s)    :  Raphael Arnedo
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: Finds the anchor point within the coordinates, which is the lowest minimum y and x point 
+    		and puts it on the first index of the array
+    e. Return: none
+    f. Parameters: Point Coords[] is the set of all coordinates.
+    		   nSize is the the amount of elements there are in the set.
+*/
 void findAnchorPoint(Point Coords[], int nSize)
 {
 
-    int i, j, k = 0;
+    int i, j;
     Point tempCoords;
-    Point compareCoords;
-    Point firstElem;
-
-    // find the first element
 
     for (i = 1; i < nSize; i++)
     {
@@ -66,44 +72,25 @@ void findAnchorPoint(Point Coords[], int nSize)
         }
         Coords[j + 1] = tempCoords;
     }
-    printf("count: %d\n\n", i);
-
-    Point lowest = Coords[0];
-	/*
-	int i, j;
-	int anchorIndex;
-	Point finder[nSize];
-	Point temp;
-	
-	for(i = 0; i < nSize; i++) {
-		finder[i] = Coords[i];
-	}
-	
-	for (i = 0; i < nSize; i++) {
-		for(j = i + 1; j < nSize; j++) {
-			if(finder[i].Y > finder[j].Y){
-				temp = finder[j];
-				finder[j] = finder[i];
-				finder[i] = temp;
-			} else if (finder[i].Y == finder[j].Y) {
-				if(finder[i].X > finder[j].X){
-					temp = finder[j];
-					finder[j] = finder[i];
-					finder[i] = temp;
-				} 
-			}
-		}
-	}
-	//anchorIndex = finder[0].index; 
-	
-	//Coords[anchorIndex] = Coords[0];
-	Coords[0] = finder[0];*/
 }
 
+/*
+    a. Name of Programmer(s):  Joaquin Acierto
+    b. Name of Tester(s)    :  Raphael Arnedo
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: Uses distance formula from a set point to the anchor point with two different points
+    		and compares which distance is greater
+    e. Return: 1 if the 1st Distance is greater than the 2nd Distance
+    	 	2 if the 1st Distance is lesser than the 2nd Distance
+    f. Parameters: Point Coords[] is the set of all coordinates.
+    		   P1 is the 1st Point
+    		   P2 is the 2nd Point to compare to P1
+*/
 int compareDistance(Point Coords[], Point P1, Point P2){
 	double fDistance1;
 	double fDistance2;
 	
+	//Distance formula
 	fDistance1 = (P1.X - Coords[0].X) * (P1.X - Coords[0].X) + (P1.Y - Coords[0].Y) * (P1.Y - Coords[0].Y);
 	fDistance2 = (P2.X - Coords[0].X) * (P2.X - Coords[0].X) + (P2.Y - Coords[0].Y) * (P2.Y - Coords[0].Y);
 	
@@ -115,13 +102,25 @@ int compareDistance(Point Coords[], Point P1, Point P2){
 		return 0;
 }
 
+/*
+    a. Name of Programmer(s):  Joaquin Acierto
+    b. Name of Tester(s)    :  Raphael Arnedo
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: Converts 2 points from the anchor point to angles then compares the angless with each
+    		other. If the angles are the same, use Distance formula to see which is nearer.
+    e. Return: 1 if the 1st Distance is greater than the 2nd Distance
+    	 	2 if the 1st Distance is lesser than the 2nd Distance
+    f. Parameters: Point Coords[] is the set of all coordinates.
+    		   P1 is the 1st Point
+    		   P2 is the 2nd Point to compare to P1
+*/
 int comparePolarAngles(Point Coords[], Point P1, Point P2){
 	double fAngle1;
 	double fAngle2;
 	
-	
-	fAngle1 = atan2((P1.Y - Coords[0].Y),(P1.X - Coords[0].X)) * (180.0/PI);
-	fAngle2 = atan2((P2.Y - Coords[0].Y),(P2.X - Coords[0].X)) * (180.0/PI);
+	// rise/run formula, then arctan(rise/run) to convert points to angles
+	fAngle1 = atan2((P1.Y - Coords[0].Y),(P1.X - Coords[0].X));
+	fAngle2 = atan2((P2.Y - Coords[0].Y),(P2.X - Coords[0].X));
 	
 	if(fAngle1 > fAngle2)
 		return 1;
@@ -131,6 +130,15 @@ int comparePolarAngles(Point Coords[], Point P1, Point P2){
 		return compareDistance(Coords,P1,P2);
 }
 
+/*
+    a. Name of Programmer(s):  Joaquin Acierto
+    b. Name of Tester(s)    :  Raphael Arnedo
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: Uses insertionSort to sort the coordinates counter-clockwise from the anchor point
+    e. Return: none
+    f. Parameters: Point Coords[] is the set of all coordinates.
+    		   nSize is the count of elements.
+*/
 void insertionSort(Point Coords[], int nSize){
 	int i, j;
 	Point Key;
@@ -148,6 +156,17 @@ void insertionSort(Point Coords[], int nSize){
     	}
 }
 
+/*
+    a. Name of Programmer(s):  Joaquin Acierto
+    b. Name of Tester(s)    :  Raphael Arnedo
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: Is the main sorting function of quicksort. Searching through the mininum and maximum index
+    		then decreasing the minimum and maximum index until it reaches its goal.
+    e. Return: i which is added to minimum and subtracted from the maxmimum
+    f. Parameters: Point Coords[] is the set of all coordinates.
+    		   low is the minimum index to search through in the array
+    		   high is the maximum index to search through in the array
+*/
 int partition(Point Coords[], int low, int high) {
 	Point Pivot;
 	Point Temp; 
@@ -172,6 +191,17 @@ int partition(Point Coords[], int low, int high) {
 	return (i + 1);
 }
 
+/*
+    a. Name of Programmer(s):  Joaquin Acierto
+    b. Name of Tester(s)    :  Raphael Arnedo
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: Uses quickSort to sort the coordinates counter-clockwise from the anchor point.
+    		Uses recursion to achieve this.
+    e. Return: none
+    f. Parameters: Point Coords[] is the set of all coordinates.
+    		   low is the minimum index to search through in the array
+    		   high is the maximum index to search through in the array
+*/
 void quickSort(Point Coords[], int low, int high){
 	if (low < high) {
         int ri = partition(Coords, low, high);

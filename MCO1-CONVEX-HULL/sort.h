@@ -1,22 +1,23 @@
-/*
-
+/**
     >> Encode your group number (2 digits) and last names, first names and sections of group members.  Encode the purpose of this file.
 
-    Group #: 00 (2 digits)
+    Group #: 10  (2 digits)
 
-    LASTNAME1, FIRSTNAME1  SECTION
-    LASTNAME2, FIRSTNAME2  SECTION
-    LASTNAME3, FIRSTNAME3  SECTION 
+    ARNEDO, RAFAEL S09
+    ACIERTO, JOAQUIN S04
+    
+    PURPOSE OF THIS FILE: Header file for the sort algorithms and the struct variables used
 
-    PURPOSE OF THIS FILE: to show an example of a C header file that follows the coding guidelines/instructions.
-
-    >> GENERAL INSTRUCTIONS:
+    >> GENERAL INSTRUCTIONS: NON-COMPLIANCE WILL RESULT INTO AT LEAST A 10 POINT DEDUCTION!
     1. Adhere with good programming style and practice (learned from CCPROG1 and CCPROG2).
-    3. Do NOT use global variables!  NON-COMPLIANCE WILL RESULT INTO A 10 POINT DEDUCTION!
+    2. Do NOT use global variables!  
+    3. Do NOT use goto statement!
+    4. Do NOT use return in a void function!
 */
 
 /*
-    You may encode any of the following below this comment the following:   
+    You may encode any of the following below this comment 
+    the following:   
     1. #define directives
     2. typedef alias(es) 
     3. declaration of your user-defined struct data type(s)
@@ -53,8 +54,6 @@ struct stackTemp{
 };
 
 typedef struct stackTemp stack;
-
-//#define PI 3.141592
 
 void findAnchorPoint(Point Coords[], int nSize);
 int compareDistance(Point Coords[], Point P1, Point P2);

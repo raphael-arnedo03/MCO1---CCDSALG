@@ -1,3 +1,20 @@
+/**
+    >> Encode your group number (2 digits) and last names, first names and sections of group members.  Encode the purpose of this file.
+
+    Group #: 10  (2 digits)
+
+    ARNEDO, RAFAEL S09
+    ACIERTO, JOAQUIN S04
+
+    PURPOSE OF THIS FILE: Holds the programs for the stacking operations
+
+    >> GENERAL INSTRUCTIONS: NON-COMPLIANCE WILL RESULT INTO AT LEAST A 10 POINT DEDUCTION!
+    1. Adhere with good programming style and practice (learned from CCPROG1 and CCPROG2).
+    2. Do NOT use global variables!  
+    3. Do NOT use goto statement!
+    4. Do NOT use return in a void function!
+
+*/
 /*
    empirical-time.c
 
@@ -7,8 +24,8 @@
 
 #include <stdio.h>
 #include <time.h>    // this is needed for calling the clock()
-#include "convex_slow.c"
-//#include "convex_fast.c"
+/*#include "graham_slow.c"*/
+#include "graham_fast.c"
 
 #define STEP  (1024)
 #define LIMIT (32768)
@@ -22,7 +39,6 @@
 // parameter n is the problem (or input) size
 void algo(long int n)
 {
-  long long ctr;     
   clock_t the_start; // start time 
   clock_t the_end;   // end time
 
@@ -30,15 +46,8 @@ void algo(long int n)
 
   stack S;
   Create(&S);
-  importTxtAuto(&S, 9);
+  importTxtAuto(&S, 3); //Set number to test file number
   cv(&n, &S);
-  /*
-  ctr = 0; 
-  for (long int i = 1; i <= n; ++i) {    // outer loop: this is O(n)
-      ctr = 0;                           // this is O(n)
-      for (long int j = 1; j <= n; j++)  // inner loop: this is O(n^2) as affected by the outer loop
-          ctr++;                         // this is O(n^2) 
-  }*/
   
   the_end = clock();  // record the end time
 
